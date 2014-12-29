@@ -7,7 +7,9 @@
     <%= link_to 'LogIn', new_user_session_path %> или <%= link_to 'Registration', new_user_registration_path %>
 <% end %></div>
 
+<% if user_signed_in? %>
  <%= link_to 'Crete new article', new_article_path %>
+ <% end %>
 <table>
   <tr>
     <th>Title of the article | | |</th>
