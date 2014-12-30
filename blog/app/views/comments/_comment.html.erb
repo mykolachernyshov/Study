@@ -9,9 +9,11 @@
   <strong>Comment:</strong>
   <%= comment.body %>
 </p>
-
+<% #checking if user are signed in %>
+<% if user_signed_in? %>
 <p>
   <%= link_to 'Delete Comment', [comment.article, comment],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 </p>
+<% end %>

@@ -11,11 +11,12 @@
 <h2>Comments</h2>
 <%= render @article.comments %>
  
+ <% if user_signed_in? %>
 <h2>Add a comment:</h2>
 <%= form_for([@article, @article.comments.build]) do |f| %>
   <p>
     <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
+    <%= f.text_field :commenter, :value  => current_user.username %>
   </p>
   <p>
     <%= f.label :body %><br>
@@ -24,6 +25,7 @@
   <p>
     <%= f.submit %>
   </p>
+<% end %>
 <% end %>
  
 <%= link_to 'Back to Articles', articles_path %>
